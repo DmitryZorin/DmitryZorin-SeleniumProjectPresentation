@@ -12,27 +12,22 @@ public class SearchHW {
     WebDriver wd;
 
     @BeforeMethod
-    public void setUp(){
+    public void SetUp(){
         wd = new ChromeDriver();
         wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wd.navigate().to("https://www.iec.co.il/pages/default.aspx");
-
+        wd.navigate().to("https://www.zap.co.il/");
     }
+
     @Test
-    public void searchFromNavMenu(){
-        //click on HomeClients
-        wd.findElement(By.cssSelector("a[href='/HomeClients']")).click();
-
-        //get breadcrumbCurrentNode
-        String breadcrumbCurrentNode = wd.findElement(By.xpath("//a[@class='s4-breadcrumbCurrentNode']")).getText();
-        System.out.println(breadcrumbCurrentNode);
-
+    public void Test2(){
+        wd.findElement(By.cssSelector(".more_butt_box")).click();
+        wd.findElement(By.cssSelector(".link_06")).click();
     }
+
 
     @AfterMethod(enabled = false)
-    public void tearDown(){
+    public void tearDown() {
         wd.quit();
-
     }
 }
